@@ -1,0 +1,145 @@
+.column {
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: var(--shadow-lg);
+}
+
+.trigger {
+  background: var(--trigger-bg);
+  border: 1px solid var(--trigger-border);
+}
+
+.joy {
+  background: var(--joy-bg);
+  border: 1px solid var(--joy-border);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+.counter {
+  background: rgba(24, 144, 255, 0.15);
+  color: #096dd9;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 2px 12px;
+  border-radius: 16px;
+  font-family: 'Inter', sans-serif;
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  font-family: 'Inter', sans-serif;
+}
+
+.input:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.addBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: none;
+  background-color: #1890ff;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.addBtn:hover {
+  background-color: #40a9ff;
+}
+
+.addBtn:active {
+  transform: scale(0.95);
+}
+
+.trigger .addBtn {
+  background-color: #ff4d4f;
+}
+
+.trigger .addBtn:hover {
+  background-color: #ff7875;
+}
+
+.joy .addBtn {
+  background-color: #52c41a;
+}
+
+.joy .addBtn:hover {
+  background-color: #73d13d;
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Custom Scrollbar */
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+.list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.list::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+.list::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--text-tertiary);
+  margin-top: 40px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .column {
+    padding: 16px;
+  }
+  .title {
+    font-size: 1.3rem;
+  }
+}

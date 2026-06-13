@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  
+  --bg-color: #f5f5f5;
+  --text-primary: #1a1a1a;
+  --text-secondary: #595959;
+  --text-tertiary: #8c8c8c;
+  
+  --surface-bg: #ffffff;
+  --border-color: #f0f0f0;
+  --border-strong: #d9d9d9;
+  
+  --trigger-bg: #ffe3e0;
+  --trigger-border: #ffa39e;
+  --trigger-card-bg: #fff1f0;
+  
+  --joy-bg: #ebfce3;
+  --joy-border: #b7eb8f;
+  --joy-card-bg: #f6ffed;
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.05);
+  
+  --filter-bg: rgba(255, 255, 255, 0.4);
+  --filter-border: rgba(255, 255, 255, 0.5);
+  
+  --btn-hover: #f5f5f5;
+  --input-bg: #ffffff;
+  --progress-bg: #e8e8e8;
+  --archived-bg: #fafafa;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-primary: #ffffff;
+  --text-secondary: #a6a6a6;
+  --text-tertiary: #666666;
+  
+  --surface-bg: #1e1e1e;
+  --border-color: #2c2c2c;
+  --border-strong: #444444;
+  
+  --trigger-bg: #3d1c1c;
+  --trigger-border: #8e2b2b;
+  --trigger-card-bg: #2a1212;
+  
+  --joy-bg: #1c3d1c;
+  --joy-border: #2b8e2b;
+  --joy-card-bg: #122a12;
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+  
+  --filter-bg: rgba(30, 30, 30, 0.6);
+  --filter-border: rgba(60, 60, 60, 0.5);
+  
+  --btn-hover: #2c2c2c;
+  --input-bg: #2a2a2a;
+  --progress-bg: #333333;
+  --archived-bg: #1a1a1a;
+}
+
+body {
+  margin: 0;
+  display: block;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+}

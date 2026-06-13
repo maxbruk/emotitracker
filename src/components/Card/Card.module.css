@@ -1,0 +1,367 @@
+.card {
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.4s ease-out forwards;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--surface-bg);
+  z-index: 1;
+}
+
+.cardWithPicker {
+  z-index: 100;
+}
+
+.dragHandle {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  cursor: grab;
+  color: #bfbfbf;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+  letter-spacing: -2px;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+.dragHandle:hover {
+  background-color: rgba(0,0,0,0.05);
+  color: var(--text-tertiary);
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.emojiContainer {
+  position: relative;
+}
+
+.emoji {
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+.clickableEmoji {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.clickableEmoji:hover {
+  transform: scale(1.1);
+}
+
+.textContainer {
+  flex: 1;
+}
+
+.text {
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.editableText {
+  cursor: text;
+  padding: 2px 4px;
+  margin: -2px -4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.editableText:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.editInput {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+  width: 100%;
+  padding: 1px 3px;
+  border: 1px solid #40a9ff;
+  border-radius: 4px;
+  outline: none;
+  background: var(--input-bg);
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.progressContainer {
+  margin-top: 16px;
+  background: var(--progress-bg);
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.progressLabel {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.progressLabel:hover {
+  color: #1890ff;
+}
+
+.progressTime {
+  font-weight: 600;
+}
+
+.progressBarBg {
+  height: 6px;
+  background: var(--border-strong);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.progressGreen {
+  background-color: #52c41a;
+}
+
+.progressOrange {
+  background-color: #faad14;
+}
+
+.progressRed {
+  background-color: #f5222d;
+}
+
+.deadlineInputContainer {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dateInput {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.saveDeadlineBtn, .cancelDeadlineBtn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 4px 8px;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.saveDeadlineBtn {
+  color: #52c41a;
+  border-color: #52c41a;
+}
+.saveDeadlineBtn:hover {
+  background: #52c41a;
+  color: white;
+}
+
+.cancelDeadlineBtn {
+  color: var(--text-tertiary);
+  border-color: var(--border-strong);
+}
+.cancelDeadlineBtn:hover {
+  background: var(--btn-hover);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 12px;
+}
+
+.dates {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trigger {
+  background-color: var(--trigger-card-bg);
+  border: 1px solid var(--trigger-border);
+}
+
+.joy {
+  background-color: var(--joy-card-bg);
+  border: 1px solid var(--joy-border);
+}
+
+.archived {
+  background-color: var(--archived-bg);
+  border: 1px solid var(--border-strong);
+  color: var(--text-tertiary);
+  opacity: 0.8;
+  box-shadow: none;
+}
+
+.archived .text {
+  color: var(--text-tertiary);
+}
+
+.deleteBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #ff4d4f;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+  opacity: 0.6;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+
+.deleteBtn:hover {
+  opacity: 1;
+  background: rgba(255, 77, 79, 0.1);
+  transform: scale(1.1);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.resolveBtn, .addDeadlineBtn {
+  padding: 6px 12px;
+  background-color: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.resolveBtn {
+  color: #ff4d4f;
+  border: 1px solid #ff4d4f;
+}
+
+.resolveBtn:hover {
+  background-color: #ff4d4f;
+  color: white;
+}
+
+.addDeadlineBtn {
+  color: #1890ff;
+  border: 1px solid transparent;
+  opacity: 0; /* visible on card hover */
+}
+
+.card:hover .addDeadlineBtn {
+  opacity: 1;
+}
+
+.addDeadlineBtn:hover {
+  background-color: #e6f7ff;
+  border-color: #91d5ff;
+}
+
+.archiveJoyBtn {
+  color: var(--text-tertiary);
+  border-color: var(--border-strong);
+}
+
+.archiveJoyBtn:hover {
+  background-color: var(--text-tertiary);
+  color: var(--surface-bg);
+}
+
+.resolving {
+  background: linear-gradient(135deg, #e6f7ff 0%, #bae7ff 100%);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100px;
+  border-left: none;
+  animation: celebrate 1.5s ease-in-out forwards;
+}
+
+.happyEmoji {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  animation: bounce 0.5s ease infinite alternate;
+}
+
+.resolveText {
+  font-weight: bold;
+  color: #0050b3;
+  font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes celebrate {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0; }
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .resolveBtn, .addDeadlineBtn, .archiveJoyBtn {
+    flex: 1;
+    text-align: center;
+  }
+}
