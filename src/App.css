@@ -127,5 +127,13 @@
   .header-actions {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 8px;
+  }
+  .archive-btn, .settings-btn, .analytics-btn, .auth-btn {
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+  .btn-text {
+    display: none;
   }
 }

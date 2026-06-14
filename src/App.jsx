@@ -138,21 +138,21 @@ function App() {
           {currentUser ? (
             <button className="auth-btn logout-btn" onClick={logout} title="Выйти">
               <img src={currentUser.photoURL} alt="User" className="user-avatar" referrerPolicy="no-referrer" />
-              Выйти
+              <span className="btn-text">Выйти</span>
             </button>
           ) : (
             <button className="auth-btn login-btn" onClick={() => setIsAuthOpen(true)} title="Войти и Синхронизировать">
-              ☁️ Войти
+              ☁️ <span className="btn-text">Войти</span>
             </button>
           )}
           <button className="analytics-btn" onClick={() => setIsAnalyticsOpen(true)} title="Аналитика">
-            📊 Графики
+            📊 <span className="btn-text">Графики</span>
           </button>
-          <button className="settings-btn" onClick={() => setIsSettingsOpen(true)}>
-            ⚙️ Настройки
+          <button className="settings-btn" onClick={() => setIsSettingsOpen(true)} title="Настройки">
+            ⚙️ <span className="btn-text">Настройки</span>
           </button>
-          <button className="archive-btn" onClick={() => setIsArchiveOpen(true)}>
-            <span className="icon">📂</span> Архив
+          <button className="archive-btn" onClick={() => setIsArchiveOpen(true)} title="Архив">
+            <span className="icon">📂</span> <span className="btn-text">Архив</span>
           </button>
         </div>
       </header>

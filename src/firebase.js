@@ -3,13 +3,13 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCerABCA2FJhowvEpruRGHknjJgVj7NYJ8",
-  authDomain: "emotitracker-d5538.firebaseapp.com",
-  projectId: "emotitracker-d5538",
-  storageBucket: "emotitracker-d5538.firebasestorage.app",
-  messagingSenderId: "228586192400",
-  appId: "1:228586192400:web:891f185f8292064eb11495",
-  measurementId: "G-E2EBW3YQYG"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
