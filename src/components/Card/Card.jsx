@@ -16,6 +16,7 @@ const Card = ({ id, index, type, text, status = 'active', emoji, createdAt, upda
   const [deadlineTimeInput, setDeadlineTimeInput] = useState('');
   
   const inputRef = useRef(null);
+  const emojiRef = useRef(null);
 
   useEffect(() => {
     if (isEditing && inputRef.current) {
@@ -205,6 +206,7 @@ const Card = ({ id, index, type, text, status = 'active', emoji, createdAt, upda
         <div className={styles.content}>
           <div className={styles.emojiContainer}>
             <span 
+              ref={emojiRef}
               className={`${styles.emoji} ${!isArchived ? styles.clickableEmoji : ''}`}
               onClick={() => !isArchived && setShowEmojiPicker(!showEmojiPicker)}
             >
@@ -213,7 +215,8 @@ const Card = ({ id, index, type, text, status = 'active', emoji, createdAt, upda
             {showEmojiPicker && (
               <EmojiPicker 
                 onSelect={handleEmojiSelect} 
-                onClose={() => setShowEmojiPicker(false)} 
+                onClose={() => setShowEmojiPicker(false)}
+                anchorRef={emojiRef}
               />
             )}
           </div>

@@ -1,20 +1,12 @@
-.pickerOverlay {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 100;
-  margin-top: 8px;
-}
-
 .picker {
-  background: white;
+  background: var(--surface-bg, white);
   border-radius: 12px;
   padding: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 8px;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--border-strong, #f0f0f0);
   width: max-content;
 }
 
@@ -29,6 +21,7 @@
 }
 
 .emojiBtn:hover {
-  background-color: #f5f5f5;
+  background-color: var(--btn-hover, #f5f5f5);
   transform: scale(1.1);
 }
+
