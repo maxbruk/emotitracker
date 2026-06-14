@@ -1,7 +1,16 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import styles from './AnalyticsModal.module.css';
 
 const AnalyticsModal = ({ isOpen, onClose, items }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const analytics = useMemo(() => {
