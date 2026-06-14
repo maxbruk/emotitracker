@@ -11,7 +11,7 @@ const AnalyticsModal = ({ isOpen, onClose, items }) => {
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
+
 
   const analytics = useMemo(() => {
     const triggers = items.filter(i => i.type === 'trigger');
@@ -92,6 +92,8 @@ const AnalyticsModal = ({ isOpen, onClose, items }) => {
       triggerResolveRate, joyArchiveRate,
     };
   }, [items]);
+
+  if (!isOpen) return null;
 
   return (
     <div className={styles.overlay} onClick={onClose}>
