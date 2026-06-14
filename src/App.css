@@ -36,7 +36,7 @@
   align-items: center;
 }
 
-.archive-btn, .settings-btn, .theme-btn {
+.archive-btn, .settings-btn, .analytics-btn {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -46,13 +46,13 @@
   border-radius: 12px;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: var(--shadow-sm);
 }
 
-.archive-btn:hover, .settings-btn:hover, .theme-btn:hover {
+.archive-btn:hover, .settings-btn:hover, .analytics-btn:hover {
   background: var(--btn-hover);
   color: var(--text-primary);
   border-color: var(--text-tertiary);

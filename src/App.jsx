@@ -6,6 +6,7 @@ import Column from './components/Column/Column';
 import Archive from './components/Archive/Archive';
 import FilterBar from './components/FilterBar/FilterBar';
 import SettingsModal from './components/SettingsModal/SettingsModal';
+import AnalyticsModal from './components/AnalyticsModal/AnalyticsModal';
 import './App.css';
 
 export const PREDEFINED_EMOJIS = ['😢', '😍', '💻', '☕', '🚗', '☀️', '🌧️', '🎵', '🍕', '🎉', '😡', '😴', '💪', '📚', '🚀'];
@@ -14,6 +15,7 @@ function App() {
   const [items, setItems] = useLocalStorage('emotional-tracker-items', []);
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isAnalyticsOpen, setIsAnalyticsOpen] = useState(false);
   
   const [deadlineThresholds, setDeadlineThresholds] = useLocalStorage('emotional-tracker-thresholds', {
     orange: 5,
@@ -128,8 +130,8 @@ function App() {
       <header className="header">
         <h1>Эмоциональный Чек-лист</h1>
         <div className="header-actions">
-          <button className="theme-btn" onClick={toggleTheme} title="Переключить тему">
-            {theme === 'light' ? '🌙' : '☀️'}
+          <button className="analytics-btn" onClick={() => setIsAnalyticsOpen(true)} title="Аналитика">
+            📊 Графики
           </button>
           <button className="settings-btn" onClick={() => setIsSettingsOpen(true)}>
             ⚙️ Настройки
@@ -191,10 +193,19 @@ function App() {
         isOpen={isSettingsOpen} 
         onClose={() => setIsSettingsOpen(false)} 
         thresholds={deadlineThresholds} 
-        onSave={setDeadlineThresholds} 
+        onSave={setDeadlineThresholds}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
+
+      <AnalyticsModal
+        isOpen={isAnalyticsOpen}
+        onClose={() => setIsAnalyticsOpen(false)}
+        items={items}
       />
     </div>
   );
 }
 
 export default App;
+
