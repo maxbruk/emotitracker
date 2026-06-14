@@ -38,7 +38,10 @@ const EmojiPicker = ({ onSelect, onClose, anchorRef }) => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (pickerRef.current && !pickerRef.current.contains(event.target)) {
+      if (
+        pickerRef.current && !pickerRef.current.contains(event.target) &&
+        !(anchorRef?.current && anchorRef.current.contains(event.target))
+      ) {
         onClose();
       }
     };
