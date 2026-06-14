@@ -6,6 +6,7 @@ import { PREDEFINED_EMOJIS } from '../../App';
 const EmojiPicker = ({ onSelect, onClose, anchorRef }) => {
   const pickerRef = useRef(null);
   const [position, setPosition] = useState({ top: 0, left: 0, placement: 'below' });
+  const [positioned, setPositioned] = useState(false);
 
   useEffect(() => {
     const updatePosition = () => {
@@ -25,6 +26,7 @@ const EmojiPicker = ({ onSelect, onClose, anchorRef }) => {
         // Not enough space above or below — center vertically
         setPosition({ top: Math.max(8, (window.innerHeight - pickerHeight) / 2), left: rect.left, placement: 'below' });
       }
+      setPositioned(true);
     };
 
     updatePosition();
@@ -55,6 +57,7 @@ const EmojiPicker = ({ onSelect, onClose, anchorRef }) => {
     top: `${position.top}px`,
     left: `${position.left}px`,
     zIndex: 9999,
+    visibility: positioned ? 'visible' : 'hidden',
   };
 
   return createPortal(
