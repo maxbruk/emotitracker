@@ -2,22 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { DragDropContext } from '@hello-pangea/dnd';
 import useLocalStorage from './hooks/useLocalStorage';
+import useDataManager from './hooks/useDataManager';
+import { useAuth } from './context/AuthContext';
 import Column from './components/Column/Column';
 import Archive from './components/Archive/Archive';
 import FilterBar from './components/FilterBar/FilterBar';
 import SettingsModal from './components/SettingsModal/SettingsModal';
 import AnalyticsModal from './components/AnalyticsModal/AnalyticsModal';
+import AuthModal from './components/AuthModal/AuthModal';
 import './App.css';
 
 export const PREDEFINED_EMOJIS = ['😢', '😍', '💻', '☕', '🚗', '☀️', '🌧️', '🎵', '🍕', '🎉', '😡', '😴', '💪', '📚', '🚀'];
 
 function App() {
-  const [items, setItems] = useLocalStorage('emotional-tracker-items', []);
+  const { currentUser, logout } = useAuth();
+  const [items, setItems] = useDataManager('emotional-tracker-items', []);
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isAnalyticsOpen, setIsAnalyticsOpen] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
   
-  const [deadlineThresholds, setDeadlineThresholds] = useLocalStorage('emotional-tracker-thresholds', {
+  const [deadlineThresholds, setDeadlineThresholds] = useDataManager('emotional-tracker-thresholds', {
     orange: 5,
     red: 2
   });
@@ -130,6 +135,16 @@ function App() {
       <header className="header">
         <h1>Эмоциональный Чек-лист</h1>
         <div className="header-actions">
+          {currentUser ? (
+            <button className="auth-btn logout-btn" onClick={logout} title="Выйти">
+              <img src={currentUser.photoURL} alt="User" className="user-avatar" referrerPolicy="no-referrer" />
+              Выйти
+            </button>
+          ) : (
+            <button className="auth-btn login-btn" onClick={() => setIsAuthOpen(true)} title="Войти и Синхронизировать">
+              ☁️ Войти
+            </button>
+          )}
           <button className="analytics-btn" onClick={() => setIsAnalyticsOpen(true)} title="Аналитика">
             📊 Графики
           </button>
@@ -202,6 +217,11 @@ function App() {
         isOpen={isAnalyticsOpen}
         onClose={() => setIsAnalyticsOpen(false)}
         items={items}
+      />
+
+      <AuthModal 
+        isOpen={isAuthOpen}
+        onClose={() => setIsAuthOpen(false)}
       />
     </div>
   );
