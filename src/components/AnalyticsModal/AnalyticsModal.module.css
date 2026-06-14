@@ -2,22 +2,23 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px;
   animation: fadeIn 0.2s ease-out forwards;
 }
 
 .modal {
   background: var(--surface-bg);
   width: 820px;
-  max-width: 94vw;
-  max-height: 90vh;
+  max-width: 100%;
+  max-height: 100%;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   display: flex;
@@ -59,6 +60,8 @@
 .body {
   padding: 24px;
   overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 }
 
 /* Charts Grid */
@@ -253,8 +256,8 @@
 /* Mobile */
 @media (max-width: 768px) {
   .modal {
-    max-width: 96vw;
-    max-height: 92vh;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .body {
