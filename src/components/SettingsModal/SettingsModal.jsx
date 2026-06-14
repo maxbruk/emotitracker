@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './SettingsModal.module.css';
 
 const SettingsModal = ({ isOpen, onClose, thresholds, onSave, theme, onToggleTheme }) => {
   const [orangeDays, setOrangeDays] = useState(thresholds.orange);
   const [redDays, setRedDays] = useState(thresholds.red);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 

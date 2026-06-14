@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Card from '../Card/Card';
 import styles from './Archive.module.css';
 
 const Archive = ({ isOpen, onClose, items, onUpdate, onDelete }) => {
   const triggers = items.filter(i => i.type === 'trigger');
   const joys = items.filter(i => i.type === 'joy');
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   return (
     <>
