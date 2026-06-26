@@ -1,6 +1,6 @@
 # React + Vite Emotitracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Just a tracker that I've vibecoded for myself & my wife.
 
 Currently, two official plugins are available:
 
